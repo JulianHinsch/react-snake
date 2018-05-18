@@ -1,0 +1,32 @@
+{
+  "name": "snake",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JulianHinsch/snake.git"
+  },
+  "keywords": [
+    "snake",
+    "game",
+    "react",
+    "jest",
+    "enzyme"
+  ],
+  "author": "Julian Hinsch",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JulianHinsch/snake/issues"
+  },
+  "homepage": "https://github.com/JulianHinsch/snake#readme",
+  "dependencies": {
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "path": "^0.12.7"
+  }
+}
