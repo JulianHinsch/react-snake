@@ -1,0 +1,25 @@
+html, body {
+  background-color: black;
+  padding: 0px;
+  margin: 0px; }
+
+.message {
+  margin: auto;
+  text-align: center;
+  color: white; }
+
+.board {
+  width: 540px;
+  height: 540px;
+  margin: 100px auto 100px auto;
+  text-align: center; }
+
+.cell {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  margin: 0px;
+  padding: 0px;
+  vertical-align: top; }
+
+/*# sourceMappingURL=main.css.map */
