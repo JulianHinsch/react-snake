@@ -95,7 +95,7 @@ export default class App extends Component {
     advanceSnake = () => {
         let currentCoordinates = this.state.snakeCoordinates;
         let nextCoordinates = this.getNextCell();
-        let isInvalid = (num) => (num < -1 || num > 26);
+        let isInvalid = (position) => (position < 0 || position > 26);
         //check for lose
         if (isInvalid(nextCoordinates.x) || isInvalid(nextCoordinates.y)) {
             this.endGame();
