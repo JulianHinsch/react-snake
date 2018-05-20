@@ -29,7 +29,7 @@ export default class App extends Component {
     }
     
     componentWillUnmount() {
-        document.removeEventListener("keydown");
+        document.removeEventListener("keydown", this.handleKeydown);
     }
 
     handleKeydown = (event) => {
@@ -115,13 +115,22 @@ export default class App extends Component {
         this.setState({snakeCoordinates: currentCoordinates});
     }
 
+    /**
+     * Set random coordinates to this.state.foodCoordinates
+     * avoid the current position of the snake
+     */
     moveFood = () => {
-        this.setState({
-            foodCoordinates: {
+        let newFoodCoordinates = {
+            x: Math.floor(Math.random()*27),
+            y: Math.floor(Math.random()*27),
+        }
+        while(this.state.snakeCoordinates.includes(JSON.stringify(newFoodCoordinates))) {
+            newFoodCoordinates = {
                 x: Math.floor(Math.random()*27),
                 y: Math.floor(Math.random()*27),
-            },
-        })
+            }
+        }
+        this.setState({foodCoordinates: newFoodCoordinates});
     }
 
     startNewGame = () => {

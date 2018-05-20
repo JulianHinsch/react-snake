@@ -5,7 +5,7 @@ import Cell from './Cell';
 export default class Board extends Component {
 
     static propTypes = {
-        foodCoordinates: PropTypes.object,
+        foodCoordinates: PropTypes.object.isRequired,
         snakeCoordinates: PropTypes.array.isRequired,
     }
 
@@ -16,7 +16,7 @@ export default class Board extends Component {
                 if (this.props.foodCoordinates && x === this.props.foodCoordinates.x && y === this.props.foodCoordinates.y) {
                     //food - white cell
                     cellArray.push(<Cell color={'#fff'} key={`${x}-${y}`}/>)
-                } else if (this.props.snakeCoordinates.includes(JSON.stringify({x: x, y: y}))) {
+                } else if (this.props.snakeCoordinates && this.props.snakeCoordinates.includes(JSON.stringify({x: x, y: y}))) {
                     //snake - red cell
                     cellArray.push(<Cell color={'#f00'} key={`${x}-${y}`}/>)
                 } else {
@@ -29,8 +29,6 @@ export default class Board extends Component {
     }
 
     render() {
-        console.log('foodCoordinates',this.props.foodCoordinates);
-        console.log('snakeCoordinates',this.props.snakeCoordinates);
         return (
             <div className='board'>
                 {this.renderCells()}
