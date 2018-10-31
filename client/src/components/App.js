@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Board from './components/Board';
+import Board from './Board';
 
 export default class App extends Component {
 
@@ -112,18 +112,16 @@ export default class App extends Component {
     advanceSnake = () => {
         let currentCoordinates = this.state.snakeCoordinates;
         let nextCoordinates = this.getNextCell();
-        let isWall = (position) => (position < 0 || position >= 27);
+        let isWall = position => position < 0 || position >= 27;
         //check for lose
         if (isWall(nextCoordinates.x) || isWall(nextCoordinates.y)) {
-            //check for wall
             this.endGame();
             return;
         } else if (this.state.snakeCoordinates.includes(JSON.stringify(nextCoordinates))) {
-            //check for intersection
             this.endGame();
             return;
         }
-        //change the cell positions
+        //advance the cell positions
         currentCoordinates.unshift(JSON.stringify(nextCoordinates));
         if(JSON.stringify(this.state.foodCoordinates)===JSON.stringify(nextCoordinates)) {
             //nom

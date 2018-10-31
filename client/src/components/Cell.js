@@ -1,16 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-export default class Cell extends Component {
-    
-    static propTypes = {
-        color: PropTypes.string.isRequired,
-    }
+const Cell = (props) => (
+    <div className='cell' style={{backgroundColor: this.props.color}}/>
+)    
 
-    render() {
-        return (
-            <div className='cell' style={{backgroundColor: this.props.color}}>       
-            </div>
-        )
-    }
+Cell.propTypes = {
+    color: PropTypes.string.isRequired,    
 }
+
+export default Cell;
